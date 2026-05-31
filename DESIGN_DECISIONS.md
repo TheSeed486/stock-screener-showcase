@@ -62,7 +62,7 @@ DSL Expr → EvalCtx { df, date_index, window } → 逐行 bool
 
 ## 4. 为什么抽象 DataProvider trait？
 
-**问题**：引擎需要历史 K 线数据来求值条件。但数据源多种多样：Parquet 文件（本仓库）、TDX 协议（私有仓库）、数据库、CSV。
+**问题**：引擎需要历史 K 线数据来求值条件。但数据源多种多样：Parquet 文件（本仓库）、数据库、CSV、网络 API。
 
 **决策**：定义抽象的 `DataProvider` trait，引擎依赖 trait 而非具体实现。
 
@@ -77,8 +77,8 @@ pub trait DataProvider: Send + Sync {
 **好处**：
 - 引擎 crate **零依赖任何具体数据源**
 - 测试极其简单：注入 Parquet 示例数据即可
-- 私有仓库换入 TDX 数据源，引擎代码一行不改
-- 使用本仓库的用户可实现自己的 provider（CSV、数据库、Web API）
+- 换入其他数据源（数据库、Web API），引擎代码一行不改
+- 使用本仓库的用户可实现自己的 provider（CSV、数据库）
 
 这就是标准的依赖反转——区分 library 和 script 的关键抽象。
 
@@ -118,7 +118,7 @@ Tier 3: run_pipeline()              ← 逐股逐行解释器
 
 ## 7. 为什么选择 Parquet 存储历史数据？
 
-私有仓库存储 35 年日线数据。这个量级下存储格式很重要。
+历史 K 线数据量级很大（数十年、数千只股票）。存储格式的选择很重要。
 
 **为什么是 Parquet？**
 - **列式**：筛选查询通常只读 3-4 列（close、volume、date），Parquet 只读这些列

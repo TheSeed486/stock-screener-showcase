@@ -1,10 +1,10 @@
 # Flutter 筛选器 UI（源码展示）
 
-此目录包含筛选器 UI 的 Flutter/Dart 源码，从完整私有股票交易终端中提取。
+此目录包含筛选器 UI 的 Flutter/Dart 源码。
 
 ## 为什么仅源码展示？
 
-这些文件依赖 `flutter_rust_bridge` 生成的绑定代码（`lib/src/rust/api/screener.dart`），该代码与私有 Rust 宿主 crate 绑定。没有 Rust 后端和 FRB 代码生成，Flutter 代码无法独立构建运行。
+这些文件依赖 `flutter_rust_bridge` 生成的 Rust 绑定层（`lib/src/rust/api/screener.dart`）。没有 Rust 后端和 FRB 代码生成，Flutter 代码无法独立构建运行。
 
 此处包含源码用于**代码审查**——展示 Flutter/Dart 能力。
 
