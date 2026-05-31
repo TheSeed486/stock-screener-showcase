@@ -31,7 +31,7 @@
 | 方式 | 类型安全 | IDE 支持 | 序列化 | 可读性 |
 |------|---------|---------|--------|--------|
 | 字符串 DSL | 无 | 无 | 需手写解析器 | 最好 |
-| 类型化 AST (Rust) | 完整 | 完整（rust-analyzer） | 免费（serde） | 良好（Builder API） |
+| 类型化 AST (Rust) | 完整 | 完整（rust-analyzer） | 免费（基于 serde） | 良好（Builder 模式） |
 | 纯 JSON | 无 | 无 | 免费 | 冗长 |
 
 选择类型化 AST 的原因：
