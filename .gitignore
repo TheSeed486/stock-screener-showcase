@@ -1,0 +1,23 @@
+# Rust
+target/
+Cargo.lock
+
+# Flutter (in the source showcase dir)
+flutter-screener-ui/.dart_tool/
+flutter-screener-ui/build/
+flutter-screener-ui/.packages
+flutter-screener-ui/.pub/
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Script artifacts
+scripts/*.log

@@ -1,0 +1,20 @@
+[package]
+name = "kline-engine"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+kline-dsl = { path = "../dsl" }
+polars = { workspace = true }
+chrono = { workspace = true }
+serde = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+rayon = { workspace = true }
+regex = { workspace = true }
+rusqlite = { version = "0.34", features = ["bundled"] }
+
+[dev-dependencies]
+rand = "0.8"
+serde_json = { workspace = true }
+polars = { workspace = true }
